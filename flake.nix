@@ -1,5 +1,5 @@
 {
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.flake-utils.url = "github:numtide/flake-utils";
 
   outputs = { self, nixpkgs, flake-utils }: flake-utils.lib.eachDefaultSystem (system: let
@@ -9,6 +9,7 @@
       name = "psocket-run";
       src = ./.;
       cargoSha256 = "sha256-OosQdGJzXszF4VSgV5bYtve/+qtqHtvFlWnxfY9q/sk=";
+      RUSTC_BOOTSTRAP="1";
     };
   });
 }
